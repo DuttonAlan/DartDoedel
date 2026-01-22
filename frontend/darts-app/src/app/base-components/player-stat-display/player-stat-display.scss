@@ -1,3 +1,105 @@
-.state-display-container {
-    background-color: #24292e;
+.stat-display-container {
+    display: flex;
+    flex-direction: row;
+
+    &.current-player {
+        border-left: white 8px solid;
+    }
+
+    .point-info {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 124px;
+        background-color: #2e343a;
+        padding: 12px 16px;
+        font-size: 1.4rem;
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50%;
+            font-weight: bold;
+
+            .dart-icons-name {
+                display: flex;
+
+                .dart-container {
+                    display: flex;
+                    flex-direction: row;
+                    width: 72px;
+
+                    .dart-logo {
+                        height: 20px;
+                        width: 20px;
+                    }
+                }
+            }
+        }
+
+        .stat-content {
+            display: flex;
+            height: 50%;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .other-infos {
+        display: flex;
+        flex-direction: column;
+        background-color: #2e343a;
+        width: 150px;
+
+        .set-leg-container {
+            display: flex;
+
+            .set-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 4px #3b4046 solid;
+                width: 69.5px;
+                height: 69px;
+
+                .leg-set-count {
+                    font-weight: bold;
+                    font-size: 1.8rem;
+                }
+            }
+
+            .leg-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 4px #3b4046 solid;
+                border-left: 0px;
+                width: 69.5px;
+                height: 69px;
+
+                .leg-set-count {
+                    font-weight: bold;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+
+        .avg-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px #3b4046 solid;
+            border-top: 0px;
+            height: 68px;
+            height: 50%;
+
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.current-points {
+    width: 40px;
 }

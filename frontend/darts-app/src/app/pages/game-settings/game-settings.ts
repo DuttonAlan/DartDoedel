@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { GameSettings } from '../../interfaces/game-settings';
+import { Component, inject, OnInit } from '@angular/core';
+import { defaultSettings, GameSettings } from '../../interfaces/game-settings';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { Router } from '@angular/router';
+import { AppStateService } from '../../state/app-state.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-game-settings',
@@ -27,27 +29,13 @@ import { Router } from '@angular/router';
   templateUrl: './game-settings.html',
   styleUrl: './game-settings.scss',
 })
-export class GameSettingsComponent {
+export class GameSettingsComponent implements OnInit {
   private router = inject(Router);
+  private appStateService = inject(AppStateService);
+
+  private destroy$ = new Subject<void>();
   
-  settings: GameSettings = {
-    mode: 'SINGLE',
-    winType: 'BEST_OF',
-    winValue: 5,
-    legs: 1,
-    sets: 1,
-    startScore: 501,
-    inMode: 'SINGLE_IN',
-    outMode: 'DOUBLE_OUT',
-    showCheckoutPercentage: true,
-    players: [
-      {
-        id: 1,
-        name: 'Alan',
-        isBot: false
-      }
-    ]
-  };
+  settings: GameSettings = defaultSettings;
 
   startScores = [301, 501, 701];
 
@@ -63,8 +51,22 @@ export class GameSettingsComponent {
     { label: 'Master Out', value: 'MASTER_OUT' }
   ];
 
+  ngOnInit(): void {
+    this.appStateService
+      .getAsObservable()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((state) => {
+        this.settings = state.currentSettings;
+      });
+  }
+
+  ngOnDestroy(): void {
+		this.destroy$.next();
+		this.destroy$.complete();
+	}
+
   public addPlayer(): void {
-    this.settings.players.push({
+    this.settings?.players.push({
       id: 0,
       name: `guest_${this.settings.players.length + 1}`,
       isBot: false
@@ -72,7 +74,9 @@ export class GameSettingsComponent {
   }
 
   public startGame(): void {
-    console.log('Spiel starten mit Settings:', this.settings);
+    this.appStateService.set('currentSettings', this.settings ? this.settings : defaultSettings)
+    console.log(this.appStateService.get('currentSettings'));
+    this.router.navigate(['/normal-game'])
   }
 
   public navigateToHomepage(): void {

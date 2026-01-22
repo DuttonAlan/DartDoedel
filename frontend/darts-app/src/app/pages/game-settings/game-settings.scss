@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     padding: 24px;
-    color: #5f6368;
+    background-color: #24292e;
+    color: white;
+    height: 707px;
 
     .settings {
         display: flex;
@@ -19,7 +21,17 @@
             .select-item {
                 width: 100%;
                 font-size: 1.2rem;
+                color: white;
             }
+
+            ::ng-deep .mat-mdc-button-toggle-checked {
+                color: black !important;
+            }
+
+            ::ng-deep .mat-mdc-button-toggle-checked .mat-button-toggle-label-content {
+                color: black !important;
+            }
+
 
             .input-container {
                 display: flex;
@@ -30,8 +42,11 @@
 
     .start-button {
         border: #5f6368 1px solid;
-        margin-top: 64px;
         font-size: 4rem;
         height: 128px;
+        margin-top: 32px;
+        color: white;
+        background-color: transparent;
+        border: 1px #5e6269 solid;
     }
 }

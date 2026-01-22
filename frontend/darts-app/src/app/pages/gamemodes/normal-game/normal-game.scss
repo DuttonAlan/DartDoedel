@@ -1,0 +1,21 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    padding: 48px;
+    background-color: #24292e;
+    color: white;
+    height: 707px;
+    gap: 32px;
+
+    .player-infos {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-height: 60vh;
+        overflow-y: scroll;
+    }
+    
+    .game-content {
+        display: flex;
+    }
+}

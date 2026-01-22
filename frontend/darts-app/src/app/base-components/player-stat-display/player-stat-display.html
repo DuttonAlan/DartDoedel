@@ -1,15 +1,53 @@
-<div class="stat-display-container">
-    <div class="stat-header">
-        <div>
-            <div class="dart-container">
-                
+<div [ngClass]="isCurrentPlayer() ? 'stat-display-container current-player' : 'stat-display-container'">
+    <div class="point-info">
+        <div class="stat-header">
+            <div class="dart-icons-name">
+                <div class="dart-container">
+                    <img class="dart-logo" src="/assets/icons/dart-icon.svg" alt="Dart Icons" />
+                    <img class="dart-logo" src="/assets/icons/dart-icon.svg" alt="Dart Icons" />
+                    <img class="dart-logo" src="/assets/icons/dart-icon.svg" alt="Dart Icons" />
+                </div>
+
+                <span> {{ name() }} </span>
             </div>
 
-            <span> {{ name() }} </span>
+            <span class="current-points">
+                {{ currentPoints() }}
+            </span>
         </div>
 
-        <span class="current-points">
-            {{ currentPoints() }}
-        </span>
+        <div class="stat-content">
+            <app-point-display [points]="">
+
+            </app-point-display>
+
+            <app-point-display [points]="">
+                
+            </app-point-display>
+
+            <app-point-display [points]="">
+                
+            </app-point-display>
+
+            <span class="current-points">0</span>
+        </div>
     </div>
+
+    <div class="other-infos">
+        <div class="set-leg-container">
+            <!-- Set -->
+            <div class="set-container">
+                <span class="leg-set-count">0</span>
+            </div>
+
+            <!-- Leg -->
+            <div class="leg-container">
+                <span class="leg-set-count">0</span>
+            </div>
+        </div>
+
+        <div class="avg-container">
+            ⌀ {{ avgPoints() }}
+        </div>
+    </div>  
 </div>

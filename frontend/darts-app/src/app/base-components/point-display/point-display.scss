@@ -1,0 +1,13 @@
+.point-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3b4046;
+    width: 64px;
+    height: 40px;
+
+    .points {
+        color: white;
+        font-weight: bold;
+    }
+}

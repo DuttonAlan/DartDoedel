@@ -3,10 +3,10 @@
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  color: #5f6368;
-  background-color: #f6f8fc;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 6px #0000001f,inset 0 -1px #dadce0;
+  color: white;
+  background-color: #191c20;
+  border-bottom: 1px solid #191c20;
+  box-shadow: 0 2px 6px #0000001f,inset 0 -1px #191c20;
 
   .title-section {
     display: flex;
@@ -31,9 +31,9 @@
     padding-right: 1rem;
 
     .profile-btn {
+      color: white;
       background: none;
       border: none;
-      color: #5f6368;
       cursor: pointer;
     }
   }
