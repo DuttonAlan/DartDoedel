@@ -1,4 +1,4 @@
-<div [ngClass]="isCurrentPlayer() ? 'stat-display-container current-player' : 'stat-display-container'">
+<div [ngClass]="player().isCurrentPlayer ? 'stat-display-container current-player' : 'stat-display-container'">
     <div class="point-info">
         <div class="stat-header">
             <div class="dart-icons-name">
@@ -8,11 +8,11 @@
                     <img class="dart-logo" src="/assets/icons/dart-icon.svg" alt="Dart Icons" />
                 </div>
 
-                <span> {{ name() }} </span>
+                <span> {{ player().name }} </span>
             </div>
 
             <span class="current-points">
-                {{ currentPoints() }}
+                {{ player().currentPoints }}
             </span>
         </div>
 
@@ -47,7 +47,7 @@
         </div>
 
         <div class="avg-container">
-            ⌀ {{ avgPoints() }}
+            ⌀ {{ player().avgPoints }}
         </div>
     </div>  
 </div>

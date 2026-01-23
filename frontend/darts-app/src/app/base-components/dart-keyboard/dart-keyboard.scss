@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 72px);
+    gap: 4px;
+
+    button {
+        width: 72px;
+        height: 72px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        padding: 0;
+    }
+
+    .wide {
+        grid-column: span 2;
+        width: 148px;
+    }
+
+    .active {
+        color: red;
+    }
+
+    .back {
+        .back-arrow {
+            margin-top: 4px;
+            height: 40px;
+            width: 40px;
+        }
+    }
+}

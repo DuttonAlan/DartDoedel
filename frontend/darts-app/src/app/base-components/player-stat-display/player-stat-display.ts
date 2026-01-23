@@ -1,6 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { PointDisplay } from "../point-display/point-display";
 import { NgClass } from '@angular/common';
+import { Player } from '../../interfaces/player';
 
 @Component({
   selector: 'app-player-stat-display',
@@ -9,11 +10,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './player-stat-display.scss',
 })
 export class PlayerStatDisplay {
-  name = input.required<string>();
-  isCurrentPlayer = input<boolean>();
-  currentPoints = input<number>();
+  player = input.required<Player>();
 
-  avgPoints = input<number>();
-
-  endResult = output<number>();
+  points = input<number[]>();
 }

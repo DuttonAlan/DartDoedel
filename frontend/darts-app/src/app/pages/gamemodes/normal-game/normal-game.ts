@@ -6,10 +6,11 @@ import { PlayerStatDisplay } from "../../../base-components/player-stat-display/
 import { Subject, takeUntil } from 'rxjs';
 import { GameSettings, defaultSettings } from '../../../interfaces/game-settings';
 import { GameInfos } from "../../../base-components/game-infos/game-infos";
+import { DartKeyboard } from "../../../base-components/dart-keyboard/dart-keyboard";
 
 @Component({
   selector: 'app-normal-game',
-  imports: [MatButtonModule, PlayerStatDisplay, GameInfos],
+  imports: [MatButtonModule, PlayerStatDisplay, GameInfos, DartKeyboard],
   templateUrl: './normal-game.html',
   styleUrl: './normal-game.scss',
 })
@@ -28,6 +29,8 @@ export class NormalGame implements OnInit {
       .subscribe((state) => {
         this.settings = state.currentSettings;
       });
+
+    this.initializePlayers();
   }
 
   ngOnDestroy(): void {
@@ -37,5 +40,18 @@ export class NormalGame implements OnInit {
   
   public navigateToHomepage(): void {
     this.router.navigate(['/game-settings'])
+  }
+
+  public triggerBreakfast(): void {
+
+  }
+
+  private initializePlayers(): void {
+    this.settings.players[0].isCurrentPlayer = true;
+
+    this.settings.players.forEach((player) => {
+      player.currentPoints = this.settings.startScore;
+      player.avgPoints = 0;
+    })
   }
 }

@@ -31,9 +31,16 @@ export const defaultSettings: GameSettings = {
   outMode: 'DOUBLE_OUT',
   players: [
       {
-      id: 1,
-      name: 'Alan',
-      isBot: false
+        id: 1,
+        name: 'Alan',
+        isBot: false,
+        isCurrentPlayer: true
+      },
+      {
+        id: 2,
+        name: 'Alex',
+        isBot: false,
+        isCurrentPlayer: false
       }
   ]
 }

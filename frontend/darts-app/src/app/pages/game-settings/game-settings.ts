@@ -69,7 +69,8 @@ export class GameSettingsComponent implements OnInit {
     this.settings?.players.push({
       id: 0,
       name: `guest_${this.settings.players.length + 1}`,
-      isBot: false
+      isBot: false,
+      isCurrentPlayer: false
     });
   }
 

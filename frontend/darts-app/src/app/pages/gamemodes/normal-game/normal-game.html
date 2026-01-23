@@ -7,17 +7,31 @@
         </button>
     </div>
     <div class="game-content">
-        <div class="player-infos">
+        <div class="game-infos">
             <app-game-infos></app-game-infos>
-            @for (player of settings.players; track player) {
-                <app-player-stat-display [name]="player.name" [currentPoints]="501">
 
-                </app-player-stat-display>
-            }
+            <div class="players">
+                @for (player of settings.players; track player) {
+                    <app-player-stat-display 
+                        [player]="player">
+
+                    </app-player-stat-display>
+                }
+            </div>
         </div>
 
-        <div>
+        <div class="dart-keyboard">
+            <app-dart-keyboard>
 
+            </app-dart-keyboard>
+
+            <button 
+                role="button" 
+                class="golden-button"
+                (click)="triggerBreakfast()"
+            >
+                <span class="golden-text">Breakfast</span>
+            </button>
         </div>
     </div>
 </div>

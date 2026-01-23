@@ -1,0 +1,31 @@
+<div class="grid">
+    @for (number of numbers; track number) {
+        <button
+            (click)="selectNumber(number)"
+        >
+            {{ number }}
+        </button>
+    }
+
+  <button (click)="selectNumber(0)">0</button>
+
+  <button
+    class="wide"
+    [class.active]="isActive(2)"
+    (click)="setMultiplier(2)"
+  >
+    DOUBLE
+  </button>
+
+  <button
+    class="wide"
+    [class.active]="isActive(3)"
+    (click)="setMultiplier(3)"
+  >
+    TRIPLE
+  </button>
+
+  <button class="wide back" (click)="goBack()">
+    <img class="back-arrow" src="/assets/icons/arrow-back.svg" alt="Dart Icons" />
+  </button>
+</div>
