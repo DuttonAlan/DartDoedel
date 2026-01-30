@@ -58,6 +58,8 @@ export class NormalGame implements OnInit, OnDestroy {
     }
 
     this.initializePlayers();
+
+    this.handleMatchWin();
   }
 
   ngOnDestroy(): void {

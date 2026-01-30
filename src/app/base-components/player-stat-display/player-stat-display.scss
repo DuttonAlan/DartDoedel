@@ -103,3 +103,80 @@
 .current-points {
     width: 40px;
 }
+
+@media (max-width: 767px) {
+    .stat-display-container {
+        &.current-player {
+            border-left: white 8px solid;
+        }
+
+        .point-info {
+            height: 82.67px;
+            padding: 8px 10.67px;
+            font-size: 0.93rem;
+
+            .stat-header {
+                height: 50%;
+
+                .dart-icons-name {
+                    .dart-container {
+                        width: 48px;
+
+                        .dart-logo {
+                            height: 13.33px;
+                            width: 13.33px;
+                        }
+                    }
+                }
+            }
+
+            .stat-content {
+                display: flex;
+                height: 50%;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .other-infos {
+            width: 100px;
+
+            .set-leg-container {
+                .set-container {
+                    border: 2.67px #3b4046 solid;
+                    width: 46.33px;
+                    height: 46px;
+
+                    .leg-set-count {
+                        font-size: 1.2rem;
+                    }
+                }
+
+                .leg-container {
+                    border: 2.67px #3b4046 solid;
+                    border-left: 0px;
+                    width: 46.33px;
+                    height: 46px;
+
+                    .leg-set-count {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+
+            .avg-container {
+                border: 2.67px #3b4046 solid;
+                border-top: 0px;
+                height: 45.33px;
+                height: 50%;
+
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .current-points {
+        width: 26.67px;
+    }
+}

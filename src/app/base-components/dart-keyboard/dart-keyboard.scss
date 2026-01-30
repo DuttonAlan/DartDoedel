@@ -45,3 +45,29 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: repeat(7, 48px);
+        gap: 4px;
+
+        button {
+            width: 48px;
+            height: 48px;
+            font-size: 0.93rem;
+        }
+
+        .wide {
+            grid-column: span 2;
+            width: 98.67px;
+        }
+
+        .back {
+            .back-arrow {
+                margin-top: 2.67px;
+                height: 26.67px;
+                width: 26.67px;
+            }
+        }
+    }
+}

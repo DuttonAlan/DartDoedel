@@ -4,12 +4,12 @@
     padding: 24px 48px;
     background-color: #24292e;
     color: white;
-    height: 708px;
-    gap: 32px;
+    height: calc(90vh - 80px);
+    padding: 40px;
 
     .game-content {
         display: flex;
-        justify-content: space-between;
+        margin-top: 16px;
 
         .game-infos {
             display: flex;
@@ -19,7 +19,6 @@
             .players {
                 display: flex;
                 flex-direction: column;
-                height: 60vh;
                 gap: 24px;
                 overflow-y: scroll;
             }
@@ -76,6 +75,60 @@
             .golden-button:active {
                 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
                     inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .game-container {
+        padding: 24px 48px;
+        color: white;
+        height: calc(90vh - 80px);
+        padding: 40px;
+
+        .game-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 16px;
+            gap: 16px;
+
+            .game-infos {
+                display: flex;
+                flex-direction: column;
+
+                .players {
+                    display: flex;
+                    flex-direction: column;
+                    max-height: 40vh;
+                    gap: 24px;
+                    overflow-y: scroll;
+                }
+            }
+
+            .dart-keyboard {
+                display: flex;
+                flex-direction: column;
+                height: 50%;
+                gap: 12px;
+                margin-top: auto;
+            }
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .game-container {
+        .game-content {
+            justify-content: space-between;
+            .game-infos {
+                .players {
+                    display: flex;
+                    flex-direction: column;
+                    height: 60vh;
+                    gap: 24px;
+                    overflow-y: scroll;
+                }
             }
         }
     }

@@ -1,14 +1,11 @@
 .settings-container {
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    height: calc(90vh - 80px);
+    padding: 40px;
+
     background-color: #24292e;
     color: white;
-    height: 720px;
-
-    .back-button {
-        margin-left: 20px;
-    }
 
     .settings {
         display: flex;
@@ -19,7 +16,6 @@
             flex-direction: column;
             width: 50vw;
             gap: 24px;
-            padding: 20px;
             border-radius: 16px;
             overflow-wrap: normal;
 
@@ -91,9 +87,36 @@
         border: #5f6368 1px solid;
         font-size: 4rem;
         height: 128px;
-        margin-top: 128px;
+
+        margin-top: auto;
         color: white;
         background-color: transparent;
         border: 1px #5e6269 solid;
     }
+}
+
+@media (max-width: 767px) {
+  .settings-container {
+    .settings {
+        flex-direction: column;
+
+        .setting-section {
+            width: 100%;
+
+            .select-item {
+                font-size: 1rem;
+            }
+
+            .input-container {
+                .form-field {
+                    max-width: 30vw;
+                }
+            }
+        }
+    }
+
+    .start-button {
+        font-size: 3rem;
+    }
+  }
 }

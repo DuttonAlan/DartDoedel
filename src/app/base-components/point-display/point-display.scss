@@ -18,3 +18,13 @@
         font-weight: bold;
     }
 }
+
+@media (max-width: 767px) {
+    .point-display {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42.67px;
+        height: 26.67px;
+    }
+}

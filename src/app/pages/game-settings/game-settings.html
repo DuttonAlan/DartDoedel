@@ -1,9 +1,10 @@
 <div class="settings-container">
-    <div>
-        <app-primary-button class="back-button" text="Back" (clicked)="navigateToHomepage()">
+    <app-primary-button 
+        class="back-button" 
+        text="Back" 
+        (clicked)="navigateToHomepage()">
+    </app-primary-button>
 
-        </app-primary-button>
-    </div>
     <div class="settings">
         <!-- PLAYER -->
         <div class="setting-section">
@@ -16,13 +17,15 @@
                     </app-closable-chip>
                 }
 
-                <button
-                    mat-mini-fab
-                    color="primary"
-                    class="add-button"
-                    (click)="openNameInputDialog()">
-                    <mat-icon>add</mat-icon>
-                </button>
+                @if (settings.players.length < 11) {
+                    <button
+                        mat-mini-fab
+                        color="primary"
+                        class="add-button"
+                        (click)="openNameInputDialog()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                }
             </div>
         </div>
 
@@ -31,7 +34,7 @@
             <h1>Game Settings</h1>
 
             <div class="input-container">
-                <mat-form-field class="example-form-field">
+                <mat-form-field class="form-field">
                     <mat-label>Legs</mat-label>
                     <input
                         matInput
@@ -42,7 +45,7 @@
 
                 </mat-form-field>
 
-                <mat-form-field class="example-form-field">
+                <mat-form-field class="form-field">
                     <mat-label>Sets</mat-label>
                     <input
                         matInput
