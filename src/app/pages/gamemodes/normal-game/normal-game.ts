@@ -58,8 +58,6 @@ export class NormalGame implements OnInit, OnDestroy {
     }
 
     this.initializePlayers();
-
-    this.handleMatchWin();
   }
 
   ngOnDestroy(): void {
@@ -100,11 +98,18 @@ export class NormalGame implements OnInit, OnDestroy {
    * Priority: dart -> turn -> game state.
    */
   public redoThrow(forceGameState = false): void {
+    // Prevent event when no throw exists
+    if (this.currentThrows.length === 0 && this.throwHistory.length === 0) {
+      return;
+    }
+
+    // Redo the last throw of current player
     if (this.currentThrows.length > 0 && !forceGameState) {
       this.currentThrows.pop();
       return;
     }
 
+    // Redo the last throw of previous player
     if (this.throwHistory.length > 0 && !forceGameState) {
       this.undoLastTurnPartially();
       this.calculateAvgThrows();
@@ -129,6 +134,14 @@ export class NormalGame implements OnInit, OnDestroy {
       this.isBreakfast = false;
       this.cdr.detectChanges();
     });
+
+    while (this.currentThrows.length > 0) {
+      this.redoThrow();
+    }
+
+    this.newThrow({ multiplier: 1, value: 5})
+    this.newThrow({ multiplier: 1, value: 20})
+    this.newThrow({ multiplier: 1, value: 1})
   }
 
   /**
